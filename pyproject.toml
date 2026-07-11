@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "depth"
+version = "0.1.0"
+description = "Self-supervised monocular depth estimation (Monodepth2-style)"
+requires-python = ">=3.11"
+dependencies = [
+    "torch>=2.5.0",
+    "torchvision>=0.20.0",
+    "pillow>=10.0",
+    "numpy>=1.26",
+    "pyyaml>=6.0",
+    "tensorboard>=2.17",
+    "coremltools>=8.0",
+    "tqdm>=4.66",
+    "matplotlib>=3.8",
+]
+
+[tool.setuptools.packages.find]
+include = ["depth*"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

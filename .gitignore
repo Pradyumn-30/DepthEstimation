@@ -1,0 +1,45 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Caches
+.cache/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# PyTorch checkpoints & logs
+checkpoints/
+runs/
+outputs/
+*.pt
+*.pth
+*.ckpt
+
+# CoreML exports
+*.mlpackage
+*.mlmodel
+
+# Data directory (ignore everything except data/splits/)
+data/*
+!data/splits/
+
+# TensorBoard
+events.out.tfevents.*
+
+# Distribution
+dist/
+*.egg-info/

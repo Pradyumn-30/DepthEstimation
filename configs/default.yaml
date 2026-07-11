@@ -1,0 +1,39 @@
+# Phase 2: Full training on AWS spot g5.2xlarge (A10G, 24GB VRAM)
+model:
+  encoder: resnet18
+  pretrained: true
+  num_scales: 4
+  frame_ids: [0, -1, 1]
+
+data:
+  dataset: kitti
+  split: eigen           # Full Eigen split or curated — document which
+  data_path: data/kitti_raw
+  height: 192
+  width: 640
+  num_workers: 8
+
+training:
+  batch_size: 12
+  learning_rate: 1.0e-4
+  num_epochs: 20
+  scheduler_step: 15     # LR drop at epoch 15 (original Monodepth2)
+  scheduler_gamma: 0.1
+  log_frequency: 100
+  save_frequency: 1      # Every epoch — spot interruptions can't cost progress
+
+loss:
+  ssim_weight: 0.85
+  smoothness_weight: 1.0e-3
+  auto_mask: true
+  min_reprojection: true
+
+augmentation:
+  horizontal_flip: 0.5
+  color_jitter:
+    brightness: 0.2
+    contrast: 0.2
+    saturation: 0.2
+    hue: 0.1
+
+device: auto              # CUDA on A10G
