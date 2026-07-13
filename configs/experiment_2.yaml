@@ -1,0 +1,40 @@
+# configs/experiment_2.yaml
+model:
+  encoder: resnet18
+  pretrained: true
+  num_scales: 4
+  frame_ids: [0, -1, 1]
+
+data:
+  dataset: kitti
+  split: eigen_curated
+  data_path: data/kitti_raw
+  height: 192
+  width: 640
+  num_workers: 2
+
+training:
+  batch_size: 4
+  learning_rate: 1.0e-4
+  num_epochs: 18
+  scheduler_step: 15
+  scheduler_gamma: 0.1
+  log_frequency: 50
+  save_frequency: 1
+  checkpoint_dir: checkpoints/experiment_2
+
+loss:
+  ssim_weight: 0.85
+  smoothness_weight: 1.0e-3
+  auto_mask: true
+  min_reprojection: true
+
+augmentation:
+  horizontal_flip: 0.5
+  color_jitter:
+    brightness: 0.2
+    contrast: 0.2
+    saturation: 0.2
+    hue: 0.1
+
+device: auto
