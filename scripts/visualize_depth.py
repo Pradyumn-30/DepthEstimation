@@ -6,13 +6,13 @@ between input RGB images and predicted depth maps colorized with a heatmap.
 Usage:
     # 1. Visualize a single image:
     python scripts/visualize_depth.py --checkpoint checkpoints/epoch_04.pt \
-                                      --config configs/local_debug.yaml \
+                                      --config configs/experiment_1.yaml \
                                       --image data/kitti_raw/2011_09_26/2011_09_26_drive_0001_sync/image_02/data/0000000005.png \
                                       --output outputs/depth_vis.png
 
     # 2. Visualize all frames in a drive sequence:
     python scripts/visualize_depth.py --checkpoint checkpoints/epoch_04.pt \
-                                      --config configs/local_debug.yaml \
+                                      --config configs/experiment_1.yaml \
                                       --drive data/kitti_raw/2011_09_26/2011_09_26_drive_0001_sync \
                                       --output outputs/sequence_vis
 """
