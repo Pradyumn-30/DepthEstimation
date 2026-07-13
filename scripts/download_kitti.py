@@ -200,7 +200,7 @@ def main():
     generate_split_files(output_dir, split_dir)
 
     print("\nDone! You can now train with:")
-    print(f"  python scripts/train.py --config configs/local_debug.yaml")
+    print(f"  python scripts/train.py --config configs/experiment_1.yaml")
 
 
 if __name__ == "__main__":
