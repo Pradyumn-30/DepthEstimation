@@ -1,7 +1,7 @@
 """Training script for self-supervised monocular depth estimation.
 
 Usage:
-    python scripts/train.py --config configs/local_debug.yaml
+    python scripts/train.py --config configs/experiment_1.yaml
     python scripts/train.py --config configs/default.yaml  # Phase 2 (AWS)
 """
 
@@ -76,8 +76,8 @@ class Trainer:
         self.width = data_cfg["width"]
 
         # Create output directories
-        self.checkpoint_dir = Path("checkpoints")
-        self.checkpoint_dir.mkdir(exist_ok=True)
+        self.checkpoint_dir = Path(train_cfg.get("checkpoint_dir", "checkpoints"))
+        self.checkpoint_dir.mkdir(parents=True, exist_ok=True)
         self.log_dir = Path("runs") / time.strftime("%Y%m%d_%H%M%S")
 
         self._build_models()
