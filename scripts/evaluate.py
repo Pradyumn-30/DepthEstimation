@@ -9,7 +9,7 @@ Computes standard KITTI depth metrics on the Eigen test split:
 
 Usage:
     python scripts/evaluate.py --checkpoint checkpoints/epoch_04.pt \\
-                               --config configs/local_debug.yaml
+                               --config configs/experiment_1.yaml
 """
 
 import argparse
